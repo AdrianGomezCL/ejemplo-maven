@@ -26,7 +26,26 @@ pipeline {
         }
         stage('uploadNexus'){
             steps {
-                nexusPublisher nexusInstanceId: 'NexusJose', nexusRepositoryId: 'test-nexus', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: 'jar', filePath: 'C:\\proyects\\diplomado\\maven\\ejemplo-maven\\build\\DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'spring-boot-starter-parent', groupId: 'org.springframework.boot', packaging: 'jar', version: '2.3.4.RELEASE']]]
+                nexusPublisher nexusInstanceId: 'NexusJose',
+                nexusRepositoryId: 'test-nexus',
+                packages: [
+                    [
+                        $class: 'MavenPackage',
+                        mavenAssetList: [
+                            [
+                                classifier: '',
+                                extension: 'jar',
+                                filePath: 'C:\\proyects\\diplomado\\maven\\ejemplo-maven\\build\\DevOpsUsach2020-0.0.1.jar'
+                            ]
+                        ],
+                        mavenCoordinate: [
+                            artifactId: 'spring-boot-starter-parent',
+                            groupId: 'org.springframework.boot',
+                            packaging: 'jar',
+                            version: '0.0.1'
+                        ]
+                    ]
+                ]
             }
         }
     }
