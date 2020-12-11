@@ -27,7 +27,7 @@ pipeline {
         stage('uploadNexus'){
             steps {
                 nexusPublisher nexusInstanceId: 'NexusJose',
-                nexusRepositoryId: 'test-nexus',
+                nexusRepositoryId: 'test-repo',
                 packages: [
                     [
                         $class: 'MavenPackage',
@@ -39,8 +39,8 @@ pipeline {
                             ]
                         ],
                         mavenCoordinate: [
-                            artifactId: 'spring-boot-starter-parent',
-                            groupId: 'org.springframework.boot',
+                            artifactId: 'DevOpsUsach2020',
+                            groupId: 'com.devopsusach2020',
                             packaging: 'jar',
                             version: '0.0.1'
                         ]
