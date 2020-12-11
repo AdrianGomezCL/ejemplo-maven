@@ -17,16 +17,14 @@ pipeline {
                 bat './mvnw.cmd clean package -e'
             }
         }
-        /*
-        stage('SonarQube analysis') {
+        stage('sonar') {
             steps {
                 withSonarQubeEnv(installationName: 'sonar') {
                     bat 'mvnw org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
                 }
             }
         }
-        */
-        stage('Nexus'){
+        stage('uploadNexus'){
             steps {
                 
             }
